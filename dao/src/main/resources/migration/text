@@ -1,0 +1,331 @@
+<changeSet author="gayko (generated)" id="1538946582129-30">
+    <insert tableName="T_ROLE">
+        <column name="ID" valueNumeric="1"/>
+        <column name="NAME" value="SECURITY_USER"/>
+    </insert>
+    <insert tableName="T_ROLE">
+        <column name="ID" valueNumeric="2"/>
+        <column name="NAME" value="SALE_USER"/>
+    </insert>
+    <insert tableName="T_ROLE">
+        <column name="ID" valueNumeric="3"/>
+        <column name="NAME" value="CUSTOMER_USER"/>
+    </insert>
+    <insert tableName="T_ROLE">
+        <column name="ID" valueNumeric="4"/>
+        <column name="NAME" value="API_USER"/>
+    </insert>
+</changeSet>
+        <!--PERMISSIONS-->
+<changeSet author="gayko (generated)" id="1539245833583-31">
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="1"/>
+    <column name="NAME" value="CHANGE_USER_ROLE"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="2"/>
+    <column name="NAME" value="CHANGE_USER_PASSWORD"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="3"/>
+    <column name="NAME" value="DISABLE_USER"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="4"/>
+    <column name="NAME" value="DELETE_USER"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="5"/>
+    <column name="NAME" value="CREATE_NEWS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="6"/>
+    <column name="NAME" value="UPDATE_NEWS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="7"/>
+    <column name="NAME" value="DELETE_NEWS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="8"/>
+    <column name="NAME" value="DELETE_COMMENTS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="9"/>
+    <column name="NAME" value="CREATE_COMMENTS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="10"/>
+    <column name="NAME" value="VIEW_COMMENTS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="11"/>
+    <column name="NAME" value="CREATE_ITEMS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="12"/>
+    <column name="NAME" value="UPDATE_ITEMS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="13"/>
+    <column name="NAME" value="COPY_ITEMS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="14"/>
+    <column name="NAME" value="REMOVE_ITEMS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="15"/>
+    <column name="NAME" value="UPLOAD_ITEMS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="16"/>
+    <column name="NAME" value="SHOW_USER_ORDERS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="17"/>
+    <column name="NAME" value="SHOW_ORDERS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="18"/>
+    <column name="NAME" value="CHANGE_ORDER_STATUS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="19"/>
+    <column name="NAME" value="CREATE_ORDER"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="20"/>
+    <column name="NAME" value="UPDATE_PROFILE"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="21"/>
+    <column name="NAME" value="VIEW_NEWS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="22"/>
+    <column name="NAME" value="VIEW_USERS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="23"/>
+    <column name="NAME" value="VIEW_STORE"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="24"/>
+    <column name="NAME" value="VIEW_ITEMS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="25"/>
+    <column name="NAME" value="SECURITY"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="26"/>
+    <column name="NAME" value="CUSTOMER"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="27"/>
+    <column name="NAME" value="SALE"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="28"/>
+    <column name="NAME" value="DELETE_ITEMS"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="29"/>
+    <column name="NAME" value="API"/>
+</insert>
+<insert tableName="T_PERMISSION">
+    <column name="ID" valueNumeric="30"/>
+    <column name="NAME" value="MANAGE_BUSINESS_CARD"/>
+</insert>
+</changeSet>
+        <!--ROLE_PERMISSION-->
+<changeSet author="root (generated)" id="1539245833583-32">
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="1"/>
+    <column name="PERMISSION_ID" valueNumeric="1"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="1"/>
+    <column name="PERMISSION_ID" valueNumeric="2"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="1"/>
+    <column name="PERMISSION_ID" valueNumeric="3"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="1"/>
+    <column name="PERMISSION_ID" valueNumeric="4"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="5"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="6"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="7"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="8"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="3"/>
+    <column name="PERMISSION_ID" valueNumeric="9"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="10"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="3"/>
+    <column name="PERMISSION_ID" valueNumeric="10"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="11"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="4"/>
+    <column name="PERMISSION_ID" valueNumeric="11"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="4"/>
+    <column name="PERMISSION_ID" valueNumeric="12"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="13"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="14"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="4"/>
+    <column name="PERMISSION_ID" valueNumeric="14"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="15"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="16"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="3"/>
+    <column name="PERMISSION_ID" valueNumeric="17"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="18"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="3"/>
+    <column name="PERMISSION_ID" valueNumeric="19"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="3"/>
+    <column name="PERMISSION_ID" valueNumeric="20"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="21"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="3"/>
+    <column name="PERMISSION_ID" valueNumeric="21"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="1"/>
+    <column name="PERMISSION_ID" valueNumeric="22"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="22"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="23"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="3"/>
+    <column name="PERMISSION_ID" valueNumeric="24"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="1"/>
+    <column name="PERMISSION_ID" valueNumeric="25"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="3"/>
+    <column name="PERMISSION_ID" valueNumeric="26"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="27"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="4"/>
+    <column name="PERMISSION_ID" valueNumeric="28"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="4"/>
+    <column name="PERMISSION_ID" valueNumeric="29"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="2"/>
+    <column name="PERMISSION_ID" valueNumeric="30"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="3"/>
+    <column name="PERMISSION_ID" valueNumeric="30"/>
+</insert>
+<insert tableName="T_ROLE_PERMISSION">
+    <column name="ROLE_ID" valueNumeric="4"/>
+    <column name="PERMISSION_ID" valueNumeric="30"/>
+</insert>
+</changeSet>
+        <!--USERS-->
+<changeSet author="gayko (generated)" id="1539245833583-33">
+<insert tableName="T_USER">
+    <column name="ID" valueNumeric="1"/>
+    <column name="EMAIL" value="security@gmail.com"/>
+    <column name="NAME" value="SECURITY"/>
+    <column name="PASSWORD" value="$2a$04$iZCBz20/x0djabCUIyATG.XWwLGeOZUy.u1ZFLSsMRO7SZn6O4zsy"/>
+    <column name="SURNAME" value="SEC"/>
+    <column name="STATUS" valueBoolean="true"/>
+    <column name="ROLE_ID" valueNumeric="1"/>
+</insert>
+<insert tableName="T_USER">
+    <column name="ID" valueNumeric="2"/>
+    <column name="EMAIL" value="sale@gmail.com"/>
+    <column name="NAME" value="SALE"/>
+    <column name="PASSWORD" value="$2a$04$iZCBz20/x0djabCUIyATG.XWwLGeOZUy.u1ZFLSsMRO7SZn6O4zsy"/>
+    <column name="SURNAME" value="SEL"/>
+    <column name="STATUS" valueBoolean="true"/>
+    <column name="ROLE_ID" valueNumeric="2"/>
+</insert>
+<insert tableName="T_USER">
+    <column name="ID" valueNumeric="3"/>
+    <column name="EMAIL" value="customer@gmail.com"/>
+    <column name="NAME" value="CUSTOMER"/>
+    <column name="PASSWORD" value="$2a$04$iZCBz20/x0djabCUIyATG.XWwLGeOZUy.u1ZFLSsMRO7SZn6O4zsy"/>
+    <column name="SURNAME" value="CUS"/>
+    <column name="STATUS" valueBoolean="true"/>
+    <column name="ROLE_ID" valueNumeric="3"/>
+</insert>
+<insert tableName="T_USER">
+    <column name="ID" valueNumeric="4"/>
+    <column name="EMAIL" value="api@gmail.com"/>
+    <column name="NAME" value="API"/>
+    <column name="PASSWORD" value="$2a$04$iZCBz20/x0djabCUIyATG.XWwLGeOZUy.u1ZFLSsMRO7SZn6O4zsy"/>
+    <column name="SURNAME" value="API"/>
+    <column name="STATUS" valueBoolean="true"/>
+    <column name="ROLE_ID" valueNumeric="4"/>
+</insert>
+</changeSet>

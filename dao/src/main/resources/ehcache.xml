@@ -1,0 +1,14 @@
+<ehcache>
+    <cache name="com.gayko.bookstore.dao.model.Item"
+           maxElementsInMemory="500"
+           timeToIdleSeconds="0"
+           timeToLiveSeconds="0"
+           eternal="true"
+           overflowToDisk="false"/>
+    <defaultCache
+            maxElementsInMemory="10"
+            eternal="false"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="0"
+            overflowToDisk="false"/>
+</ehcache>
