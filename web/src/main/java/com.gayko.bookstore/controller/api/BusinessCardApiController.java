@@ -18,16 +18,15 @@ public class BusinessCardApiController {
     @Autowired
     @Qualifier("businessCardService")
     private BusinessCardService businessCardService;
-    @Autowired
+/*    @Autowired
     @Qualifier("userService")
-    private UserService userService;
+    private UserService userService;*/
 
     @GetMapping(value = "/users/{id}/cards")
     @PreAuthorize("hasAuthority('MANAGE_BUSINESS_CARD')")
     @ResponseBody
     public List<BusinessCardDTO> getCardsById(@PathVariable("id") Long id) {
-        List<BusinessCardDTO> cards = businessCardService.findByUserId(id);
-        return cards;
+        return businessCardService.findByUserId(id);
     }
 
     @GetMapping(value = "/users/cards/{id}")

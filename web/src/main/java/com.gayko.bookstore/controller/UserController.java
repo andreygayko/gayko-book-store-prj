@@ -3,7 +3,7 @@
 package com.gayko.bookstore.controller;
 
 import com.gayko.bookstore.config.PageProperties;
-import com.gayko.bookstore.controller.validator.UserValidator;
+//import com.gayko.bookstore.controller.validator.UserValidator;
 import com.gayko.bookstore.model.impl.UserDTO;
 import com.gayko.bookstore.service.UserService;
 import org.apache.logging.log4j.LogManager;
@@ -25,13 +25,13 @@ public class UserController {
 
 
     final UserService userService;
-    final UserValidator userValidator;
+  //  final UserValidator userValidator;
     final PageProperties pageProperties;
 
     @Autowired
-    public UserController(UserService userService, UserValidator userValidator, PageProperties pageProperties) {
+    public UserController(UserService userService,/* UserValidator userValidator,*/ PageProperties pageProperties) {
         this.userService = userService;
-        this.userValidator = userValidator;
+       // this.userValidator = userValidator;
         this.pageProperties = pageProperties;
     }
 
@@ -65,7 +65,7 @@ public class UserController {
             BindingResult result,
             ModelMap modelMap) {
         user.setId(id);
-        userValidator.validate(user, result);
+     //   userValidator.validate(user, result);
         if (result.hasErrors()) {
             return pageProperties.getUpdateUserPagePath();
         } else {
@@ -86,7 +86,7 @@ public class UserController {
             @ModelAttribute UserDTO user,
             BindingResult result,
             ModelMap modelMap) {
-        userValidator.validate(user, result);
+   //     userValidator.validate(user, result);
         if (result.hasErrors()) {
             return pageProperties.getCreateUserPagePath();
         } else {

@@ -1,3 +1,4 @@
+/*
 package com.gayko.bookstore.controller.validator;
 
 import com.gayko.bookstore.model.impl.UserDTO;
@@ -34,3 +35,4 @@ public class UserValidator implements Validator {
         }
     }
 }
+*/

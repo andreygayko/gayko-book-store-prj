@@ -22,4 +22,7 @@ public class AppConfig {
     public static PropertySourcesPlaceholderConfigurer configurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
+
+
+
 }
