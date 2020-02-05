@@ -219,9 +219,9 @@
     <div class="col-md-2"></div>
     <div class="col-md-12">
         <div class="row">
-            <a href="${pageContext.request.contextPath}/logout"
-               class=" btn btn-primary" aria-pressed="true" role="button">Log Out</a>
             <div class="col-md-12">
+                <a href="${pageContext.request.contextPath}/logout"
+                   class=" btn btn-primary" aria-pressed="true" role="button">Log Out</a>
                 <table class="table">
                     <thead>
                     <tr>
