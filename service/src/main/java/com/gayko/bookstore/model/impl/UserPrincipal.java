@@ -13,6 +13,7 @@ public class UserPrincipal implements UserDetails {
     private String username;
     private String password;
     private String role;
+    private Boolean isEnabled;
     private List<GrantedAuthority> authorities;
 
     public UserPrincipal(User user) {
@@ -20,6 +21,7 @@ public class UserPrincipal implements UserDetails {
         this.username = user.getEmail();
         this.password = user.getPassword();
         this.role = user.getRole().getName();
+        this.isEnabled = user.getEnable();
         String[] authorityList = user.getRole().getPermissions().stream()
                 .map(Permission::getName)
                 .toArray(String[]::new);
@@ -63,7 +65,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return isEnabled;
     }
 
     public String getRole() {
