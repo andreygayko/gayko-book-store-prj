@@ -87,6 +87,8 @@
     <maven.war.plugin.version>3.2.2</maven.war.plugin.version>
     <liquibase.version>3.6.2</liquibase.version>
     <jackson.version>2.9.7</jackson.version>
+    <servlet-api.version>4.0.1</servlet-api.version>
+    <jsp-api.version>2.2</jsp-api.version>
   </properties>
   <build>
     <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
