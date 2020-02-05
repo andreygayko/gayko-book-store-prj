@@ -33,7 +33,7 @@
                                 <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
                             </div>
                             <input type="button" class="btn btn-lg btn-secondary btn-block" value="Sign in"
-                                   onclick='location.href="/"'>
+                                   onclick='location.href="/users/registration"'>
                         </div>
                     </div>
                 </div>
