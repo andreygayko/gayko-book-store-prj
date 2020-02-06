@@ -11,20 +11,37 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-12">
-            <form action="${pageContext.request.contextPath}/orders" method="get">
                 <div class="row">
                     <div class="col-md-12">
                         <a href="${pageContext.request.contextPath}/logout"
                            class=" btn btn-primary" aria-pressed="true" role="button">Log Out</a>
-                        <button type="submit" class="btn btn-primary">Orders</button>
-                        <a href="${pageContext.request.contextPath}/news"
-                           class=" btn btn-primary" aria-pressed="true" role="button">News</a>
                         <a href="${pageContext.request.contextPath}/profile"
                            class=" btn btn-primary" aria-pressed="true" role="button">Profile</a>
                         <a href="${pageContext.request.contextPath}/user.cards"
                            class=" btn btn-primary" aria-pressed="true" role="button">Buisness Cards</a>
                         <a href="${pageContext.request.contextPath}/card.create"
                            class=" btn btn-primary" aria-pressed="true" role="button">Create Buisness Cards</a>
+                        <security:authorize access="hasAuthority('VIEW_NEWS')">
+                            <td>
+                                <a href="${pageContext.request.contextPath}/news"
+                                   class="btn btn-primary"
+                                   aria-pressed="true" role="button">News</a>
+                            </td>
+                        </security:authorize>
+                        <security:authorize access="hasAuthority('SHOW_ORDERS')">
+                            <td>
+                                <a href="${pageContext.request.contextPath}/orders/user"
+                                   class="btn btn-primary"
+                                   aria-pressed="true" role="button">My orders</a>
+                            </td>
+                        </security:authorize>
+                        <security:authorize access="hasAuthority('SHOW_USER_ORDERS')">
+                            <td>
+                                <a href="${pageContext.request.contextPath}/orders"
+                                   class="btn btn-primary"
+                                   aria-pressed="true" role="button">Orders</a>
+                            </td>
+                        </security:authorize>
                         <security:authorize access="hasAuthority('VIEW_USERS')">
                             <td>
                                 <a href="${pageContext.request.contextPath}/users"
@@ -79,7 +96,6 @@
                         </nav>
                     </div>
                 </div>
-            </form>
         </div>
         <div class="col-md-2"></div>
     </div>

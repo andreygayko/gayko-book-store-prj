@@ -27,17 +27,21 @@ public class OrderController {
     private OrderService orderService;
 
     //Get current user's orders
-    @GetMapping
+    @GetMapping("/user")
     @PreAuthorize("hasAuthority('SHOW_ORDERS')")
-    public String getOrders(ModelMap modelMap){
+    public String getCurrentUserOrders(ModelMap modelMap){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         List<OrderDTO> orders = orderService.getOrders(authentication);
         modelMap.addAttribute("orders", orders);
-        System.out.println("wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"+orders);
-        for (OrderDTO order:orders
-                ) {
-            System.out.println(order.getUserDTO().getId()+" "+order.getItemDTO().getId()+" "+order.getItemDTO().getName());
-        }
+        return pageProperties.getOrdersPagePath();
+    }
+
+    //Get all orders
+    @GetMapping
+    @PreAuthorize("hasAuthority('SHOW_USER_ORDERS')")
+    public String getOrders(ModelMap modelMap){
+        List<OrderDTO> orders = orderService.findAll();
+        modelMap.addAttribute("orders", orders);
         return pageProperties.getOrdersPagePath();
     }
 
@@ -45,7 +49,7 @@ public class OrderController {
     @GetMapping("/user/{id}")
     @PreAuthorize("hasAuthority('SHOW_USER_ORDERS')")
     public String getUserOrders(ModelMap modelMap, @PathVariable("id") Long id){
-        List<OrderDTO> orders = orderService.findOrders(id);
+        List<OrderDTO> orders = orderService.findUserOrders(id);
         modelMap.addAttribute("orders", orders);
         return pageProperties.getOrdersPagePath();
     }

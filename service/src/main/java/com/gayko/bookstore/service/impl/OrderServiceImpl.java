@@ -34,6 +34,7 @@ public class OrderServiceImpl implements OrderService {
     private final ItemDao itemDao;
     private final UserDaoNew userDao;
     private final OrderDao orderDao;
+
 @Autowired
 @Qualifier("orderDTOConverter")
 private DTOConverter<Order, OrderDTO> orderDTOConverter;
@@ -49,7 +50,13 @@ private DTOConverter<Order, OrderDTO> orderDTOConverter;
     }
 
     @Override
-    public List<OrderDTO> findOrders(Long userId){
+    public List<OrderDTO> findAll() {
+        List<Order> orders = orderDao.findAll();
+        return orderDTOConverter.toDTOList(orders);
+    }
+
+    @Override
+    public List<OrderDTO> findUserOrders(Long userId){
         List<Order> orders = orderDao.findByUserId(userId);
         return orderDTOConverter.toDTOList(orders);
     }
@@ -59,13 +66,8 @@ private DTOConverter<Order, OrderDTO> orderDTOConverter;
     public List<OrderDTO> getOrders(Authentication authentication){
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
         Long userId = userPrincipal.getId();
-        System.out.println(userId+"12345678909876543234567890987654323456789098765432123456789876543234567899876543234");
-        //List<Order> orders =  orderDao.find();
         List<Order> orders = orderDao.findByUserId(userId);
-        System.out.println("oooooooooooooooooooooooooooooooooooooo"+orders);
-        List<OrderDTO> k = orderDTOConverter.toDTOList(orders);
-        System.out.println("ppppppppppppppppp"+k);
-        return k;
+        return orderDTOConverter.toDTOList(orders);
     }
 
     @Override

@@ -15,7 +15,8 @@ public interface OrderService {
 
     List<OrderDTO> getOrders(Authentication authentication);
 
-    public List<OrderDTO> findOrders(Long userId);
+    List<OrderDTO> findUserOrders(Long userId);
 
+    List<OrderDTO> findAll();
 
     }
