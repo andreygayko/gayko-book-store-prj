@@ -53,6 +53,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO create(UserDTO user) {
         User createUser = userConverter.toEntity(user);
+        createUser.setEnable(true);
+        createUser.setRole(roleDao.findOne(3L)); //Customer default
+        createUser.setPassword(passwordEncoder.encode(user.getPassword()));
         userDao.create(createUser);
         return userDTOConverter.toDTO(createUser);
     }
