@@ -29,7 +29,7 @@ public class News implements Serializable {
     @Column(name = "date_created")
     private LocalDateTime created;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "f_user_id", foreignKey = @ForeignKey(name="f_user_id_news"))
     private User user;
 
