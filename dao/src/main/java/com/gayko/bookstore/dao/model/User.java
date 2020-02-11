@@ -37,7 +37,7 @@ public class User implements Serializable {
     @Column(name = "is_enable")
     private Boolean isEnable;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "t_role_id", foreignKey = @ForeignKey(name = "f_role_id_user"))
     private Role role;
 
