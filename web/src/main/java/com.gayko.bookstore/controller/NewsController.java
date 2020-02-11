@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
+@RequestMapping("/news")
 public class NewsController {
 
     @Autowired
@@ -31,35 +32,32 @@ public class NewsController {
     @Qualifier("commentService")
     private CommentService commentService;
 
-    @GetMapping("/news")
+    @GetMapping
     @PreAuthorize("hasAuthority('VIEW_NEWS')")
-    public String getNews(ModelMap modelMap){
+    public String getNews(ModelMap modelMap) {
         List<NewsDTO> news = newsService.findAll();
         modelMap.addAttribute("news", news);
         return pageProperties.getNewsPagePath();
     }
 
-    @GetMapping("/news/create")
+    @GetMapping("/create")
     @PreAuthorize("hasAuthority('CREATE_NEWS')")
     public String getCreateNewsPage(ModelMap modelMap) {
         modelMap.addAttribute("news", new NewsDTO());
         return pageProperties.getNewsCreatePagePath();
     }
 
-    @PostMapping("/news/create")
+    @PostMapping("/create")
     @PreAuthorize("hasAuthority('CREATE_NEWS')")
     public String createNews(
             @ModelAttribute("news") NewsDTO news,
             ModelMap modelMap) {
         modelMap.addAttribute("news", news);
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
-        Long userId = userPrincipal.getId();
-        newsService.save(news, userId);
-        return pageProperties.getNewsPagePath();
+        newsService.save(news);
+        return "redirect:/news";
     }
 
-    @GetMapping("/news/update/{id}")
+    @GetMapping("/{id}/update")
     @PreAuthorize("hasAuthority('UPDATE_NEWS')")
     public String getUpdateNewsPage(
             @PathVariable("id") Long id,
@@ -70,7 +68,7 @@ public class NewsController {
         return pageProperties.getNewsUpdatePagePath();
     }
 
-    @PostMapping("/news/update/{id}")
+    @PostMapping("/{id}/update")
     @PreAuthorize("hasAuthority('UPDATE_NEWS')")
     public String updateNews(
             @ModelAttribute("news") NewsDTO news,
@@ -78,17 +76,11 @@ public class NewsController {
             @RequestParam String content,
             ModelMap modelMap) {
         modelMap.addAttribute("news", news);
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
-        Long userId = userPrincipal.getId();
-        news.setContent(content);
-        news.setTitle(news.getTitle());
-        news.setCreated(LocalDateTime.now());
-        newsService.update(content, userId, id);
-        return "redirect:/news/update/{id}";
+        newsService.update(news, content);
+        return "redirect:/news";
     }
 
-    @GetMapping("/news/create.comments/{id}")
+    @GetMapping("/create.comments/{id}")
     @PreAuthorize("hasAuthority('CREATE_COMMENTS')")
     public String getCommentsPage(
             @PathVariable("id") Long id,
@@ -99,7 +91,7 @@ public class NewsController {
         return pageProperties.getCommentsCreatePagePath();
     }
 
-    @PostMapping("/news/create.comments/{id}")
+    @PostMapping("/create.comments/{id}")
     @PreAuthorize("hasAuthority('CREATE_COMMENTS')")
     public String createComment(
             @PathVariable("id") Long id,
@@ -110,7 +102,7 @@ public class NewsController {
         return "redirect:/news/create.comments/{id}";
     }
 
-    @GetMapping("/news/comments/{id}")
+    @GetMapping("/comments/{id}")
     @PreAuthorize("hasAuthority('VIEW_COMMENTS')")
     public String getComments(
             ModelMap modelMap,
@@ -121,21 +113,21 @@ public class NewsController {
         return pageProperties.getCommentsPagePath();
     }
 
-    @GetMapping("/news.read.comments/{id}/delete")
+    @GetMapping("/read.comments/{id}/delete")
     @PreAuthorize("hasAuthority('DELETE_COMMENTS')")
     public String deleteComment(
             @PathVariable("id") String id
     ) {
         commentService.removeById(Long.valueOf(id));
-        return "redirect:/news/news.read.comments/{id}";
+        return "redirect:/news/read.comments/{id}";
     }
 
-    @GetMapping(value = "/{id}/delete")
+    @GetMapping("/{id}/delete")
     @PreAuthorize("hasAuthority('DELETE_NEWS')")
     public String deleteNews(
-            @PathVariable("id") String id
+            @PathVariable("id") Long id
     ) {
-        newsService.removeById(Long.valueOf(id));
+        newsService.removeById(id);
         return "redirect:/news";
     }
 }

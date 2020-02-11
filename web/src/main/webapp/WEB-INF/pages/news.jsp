@@ -60,15 +60,15 @@
                                     </security:authorize>
                                     <td>
                                         <security:authorize access="hasAuthority('UPDATE_NEWS')">
-                                        <a href="${pageContext.request.contextPath}/news/news.update/${news.id}"
+                                        <a href="${pageContext.request.contextPath}/news/${news.id}/update"
                                            class="btn btn-primary"
-                                           aria-pressed="true" role="button">Update news</a>
+                                           aria-pressed="true" role="button">Update</a>
                                         </security:authorize>
                                         <security:authorize access="hasAuthority('DELETE_NEWS')">
                                     <td>
                                         <a href="${pageContext.request.contextPath}/news/${news.id}/delete"
                                            class="btn btn-primary"
-                                           aria-pressed="true" role="button">Delete news</a>
+                                           aria-pressed="true" role="button">Delete</a>
                                     </td>
                                     </security:authorize>
                                     </td>

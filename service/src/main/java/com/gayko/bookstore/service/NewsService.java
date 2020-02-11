@@ -10,9 +10,9 @@ public interface NewsService {
 
     //Long countPages(Long quantity);
 
-    void save(NewsDTO news, Long userId);
+    void save(NewsDTO news);
 
-    void update(String content, Long userId, Long newsId);
+    void update(NewsDTO newsDTO, String content);
 
     void update(NewsDTO news);
 

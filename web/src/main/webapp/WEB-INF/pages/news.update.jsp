@@ -14,13 +14,11 @@
                 <div class="col-md-12">
                     <a href="${pageContext.request.contextPath}/logout" class=" btn btn-primary"
                        aria-pressed="true" role="button">Log Out</a>
-                    <a href="${pageContext.request.contextPath}/news"
-                       class=" btn btn-primary" aria-pressed="true" role="button">News</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <form action="${pageContext.request.contextPath}/news/news.update/${news.id}"
+                    <form action="${pageContext.request.contextPath}/news/${news.id}/update"
                           method="post">
                         <table class="table">
                             <thead>

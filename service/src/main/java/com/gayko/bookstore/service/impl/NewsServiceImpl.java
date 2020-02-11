@@ -7,9 +7,13 @@ import com.gayko.bookstore.dao.UserDaoNew;
 import com.gayko.bookstore.dao.model.News;
 import com.gayko.bookstore.dao.model.User;
 import com.gayko.bookstore.model.impl.NewsDTO;
+import com.gayko.bookstore.model.impl.UserDTO;
+import com.gayko.bookstore.model.impl.UserPrincipal;
 import com.gayko.bookstore.service.NewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,21 +45,30 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public void save(NewsDTO news, Long userId) {
-        System.out.println("------------------------------"+news);
+    public void save(NewsDTO news) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+        Long userId = userPrincipal.getId();
+        System.out.println("News from service: " + news);
         News convertNews = newsConverter.toEntity(news);
         convertNews.setCreated(LocalDateTime.now());
-        System.out.println("0000000000000000000000000000000"+userId);
         convertNews.setUser(userDao.findById(userId));
-        System.out.println("++++++++++++++++++++++++++++++"+convertNews);
         newsDao.create(convertNews);
     }
 
     @Override
-    public void update(String content, Long userId, Long newsId) {
-        News findNews = newsDao.findOne(newsId);
-        findNews.setContent(content);
-        newsDao.update(findNews);
+    public void update(NewsDTO newsDTO, String content) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
+        Long userId = userPrincipal.getId();
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(userPrincipal.getId());
+        News news = newsDao.findOne(newsDTO.getId());
+        newsDTO.setCreated(LocalDateTime.now());
+        newsDTO.setContent(content);
+        newsDTO.setUserDTO(userDTO);
+        newsDTO.setTitle(newsDTOConverter.toDTO(news).getTitle());
+        newsDao.update(newsConverter.toEntity(newsDTO));
     }
 
     @Override
