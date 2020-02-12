@@ -6,7 +6,7 @@ import org.springframework.security.core.Authentication;
 import java.util.List;
 
 public interface CommentService {
-    void addComment(String comment, Authentication authentication, Long newsId);
+    void addComment(String content, Long newsId);
 
     void save(CommentDTO comment);
 

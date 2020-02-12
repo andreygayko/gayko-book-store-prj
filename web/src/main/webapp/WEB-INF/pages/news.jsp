@@ -49,7 +49,7 @@
                                     <td>
                                         <a href="${pageContext.request.contextPath}/news/comments/${news.id}"
                                            class="btn btn-primary"
-                                           aria-pressed="true" role="button">Read comments</a>
+                                           aria-pressed="true" role="button">Comments</a>
                                     </td>
                                     <security:authorize access="hasAuthority('CREATE_COMMENTS')">
                                         <td>

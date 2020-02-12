@@ -25,7 +25,6 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">comment id</th>
                                 <th scope="col">content</th>
                             </tr>
@@ -33,14 +32,11 @@
                             <tbody>
                             <c:forEach items="${comments}" var="comment">
                                 <tr>
-                                    <th scope="row"><label>
-                                        <input type="checkbox" name="ids" value="${comment.id}">
-                                    </label></th>
                                     <th>${comment.id}</th>
                                     <th>${comment.content}</th>
                                     <securiry:authorize access="hasAuthority('DELETE_COMMENTS')">
                                         <td>
-                                            <a href="${pageContext.request.contextPath}/news.read.comments/${id}${comment.id}/delete"
+                                            <a href="${pageContext.request.contextPath}/news/comments/${comment.id}/delete"
                                                class="btn btn-primary"
                                                aria-pressed="true" role="button">Delete comment</a>
                                         </td>

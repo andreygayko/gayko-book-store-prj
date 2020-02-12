@@ -14,6 +14,7 @@ import com.gayko.bookstore.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,20 +40,18 @@ public class CommentServiceImpl implements CommentService {
     private NewsDao newsDao;
 
     @Override
-    public void addComment(String comment, Authentication authentication, Long newsId) {
+    public void addComment(String content, Long newsId) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
         Long userId = userPrincipal.getId();
         User user = userDao.findById(userId);
-        System.out.println("11111"+user);
         News news = newsDao.findOne(newsId);
-        System.out.println("22222"+news);
-        Comment saveComment = new Comment();
-        saveComment.setUser(user);
-        saveComment.setNews(news);
-        saveComment.setCreated(LocalDateTime.now());
-        saveComment.setContent(comment);
-        System.out.println(saveComment);
-        commentDao.create(saveComment);
+        Comment comment = new Comment();
+        comment.setUser(user);
+        comment.setNews(news);
+        comment.setCreated(LocalDateTime.now());
+        comment.setContent(content);
+        commentDao.create(comment);
     }
 
     @Override
@@ -68,9 +67,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<CommentDTO> findComments(Long newsId) {
-        System.out.println("6666666666666"+newsId);
-        List<Comment> findComments = commentDao.findByNewsId(1L);
-        System.out.println("7777777777"+findComments);
+        List<Comment> findComments = commentDao.findByNewsId(newsId);
         return commentDTOConverter.toDTOList(findComments);
     }
 

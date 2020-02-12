@@ -97,9 +97,8 @@ public class NewsController {
             @PathVariable("id") Long id,
             @RequestParam String content
     ) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        commentService.addComment(content, authentication, id);
-        return "redirect:/news/create.comments/{id}";
+        commentService.addComment(content, id);
+        return "redirect:/news/comments/{id}";
     }
 
     @GetMapping("/comments/{id}")
@@ -113,13 +112,13 @@ public class NewsController {
         return pageProperties.getCommentsPagePath();
     }
 
-    @GetMapping("/read.comments/{id}/delete")
+    @GetMapping("/comments/{id}/delete")
     @PreAuthorize("hasAuthority('DELETE_COMMENTS')")
     public String deleteComment(
             @PathVariable("id") String id
     ) {
         commentService.removeById(Long.valueOf(id));
-        return "redirect:/news/read.comments/{id}";
+        return "redirect:/news";
     }
 
     @GetMapping("/{id}/delete")
