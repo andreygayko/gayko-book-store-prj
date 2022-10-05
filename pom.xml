@@ -86,7 +86,7 @@
     <hibernate.validator.version>6.0.10.Final</hibernate.validator.version>
     <maven.war.plugin.version>3.2.2</maven.war.plugin.version>
     <liquibase.version>3.6.2</liquibase.version>
-    <jackson.version>2.9.7</jackson.version>
+    <jackson.version>2.12.6.1</jackson.version>
     <servlet-api.version>4.0.1</servlet-api.version>
     <jsp-api.version>2.2</jsp-api.version>
   </properties>
